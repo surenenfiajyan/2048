@@ -1,0 +1,312 @@
+body {
+	margin: 0;
+}
+
+main {
+	width: 440px;
+	margin: 15px auto 0;
+	font-family: sans-serif;
+	padding: 0 10px;
+	text-align: center;
+}
+
+.new-game-btn {
+	margin: 0 auto;
+	border: none;
+	padding: 10px;
+	background-color: deepskyblue;
+	font-size: 15px;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+	font-family: sans-serif;
+	outline-color: orange;
+	box-shadow: 1px 1px 3px black;
+}
+
+.new-game-btn:hover {
+	background-color: green;
+}
+
+#victoryOverlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	pointer-events: none;
+	background-color: rgba(0, 0, 0, 80%);
+	color: lime;
+	z-index: 10;
+	font-size: 30px;
+	font-weight: bold;
+	transition: all 500ms;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+}
+
+#victoryOverlay.show {
+	opacity: 1;
+}
+
+#victoryOverlay .inner {
+	padding: 20px;
+	box-sizing: border-box;
+	box-shadow: 1px 1px 3px black;
+	width: 600px;
+	max-width: 90%;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+#victoryOverlay .line {
+	display: inline-block;
+}
+
+.board-container {
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%;
+}
+
+#mainBoard {
+	flex-wrap: wrap;
+	position: absolute;
+	display: flex;
+	justify-content: space-around;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-radius: 15px;
+	background-color: gray;
+	padding: 1%;
+	font-size: 124px;
+	line-height: 102px;
+	box-shadow: 1px 1px 3px black;
+}
+
+.board-cell {
+	width: 23%;
+	height: 23%;
+	background-color: lightgray;
+	border-radius: 15px;
+	margin: 1%;
+	color: white;
+	position: relative;
+	box-shadow: inset 1px 1px 3px black;
+}
+
+.board-cell::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-radius: 15px;
+	z-index: 5;
+	transition: all cubic-bezier(0.16, 0.97, 1, 1) 300ms;
+	text-shadow: 1px 1px 0px gray;
+	box-shadow: 0px 0px 3px 0px darkslategray;
+}
+
+.board-cell:not(.level-1):not(.level-2):not(.level-3):not(.level-4):not(.level-5):not(.level-6):not(.level-7):not(.level-8):not(.level-9):not(.level-10):not(.level-11):not(.level-12):not(.level-13):not(.level-14):not(.level-15):not(.level-16):not(.level-17)::before {
+	box-shadow: none;
+}
+
+.board-cell.no-animation::before {
+	transition: none;
+}
+
+.board-cell.left-1::before {
+	transform: translateX(-108%);
+}
+
+.board-cell.left-2::before {
+	transform: translateX(-217%);
+}
+
+.board-cell.left-3::before {
+	transform: translateX(-326%);
+}
+
+.board-cell.right-1::before {
+	transform: translateX(108%);
+}
+
+.board-cell.right-2::before {
+	transform: translateX(217%);
+}
+
+.board-cell.right-3::before {
+	transform: translateX(326%);
+}
+
+.board-cell.up-1::before {
+	transform: translateY(-108%);
+}
+
+.board-cell.up-2::before {
+	transform: translateY(-217%);
+}
+
+.board-cell.up-3::before {
+	transform: translateY(-326%);
+}
+
+.board-cell.down-1::before {
+	transform: translateY(108%);
+}
+
+.board-cell.down-2::before {
+	transform: translateY(217%);
+}
+
+.board-cell.down-3::before {
+	transform: translateY(326%);
+}
+
+.board-cell.level-4, .board-cell.level-5, .board-cell.level-6 {
+	font-size: 72%;
+}
+
+.board-cell.level-7, .board-cell.level-8, .board-cell.level-9 {
+	font-size: 47%;
+}
+
+.board-cell.level-10, .board-cell.level-11, .board-cell.level-12, .board-cell.level-13 {
+	font-size: 34%;
+}
+
+.board-cell.level-14, .board-cell.level-15, .board-cell.level-16 {
+	font-size: 27%;
+}
+
+.board-cell.level-17 {
+	font-size: 22%;
+}
+
+.board-cell.level-1::before {
+	content: "2";
+	background-color: cornflowerblue;
+}
+
+.board-cell.level-2::before {
+	content: "4";
+	background-color: skyblue;
+}
+
+.board-cell.level-3::before {
+	content: "8";
+	background-color: mediumturquoise;
+}
+
+.board-cell.level-4::before {
+	content: "16";
+	background-color: mediumaquamarine;
+	text-indent: -8%;
+}
+
+.board-cell.level-5::before {
+	content: "32";
+	background-color: seagreen;
+}
+
+.board-cell.level-6::before {
+	content: "64";
+	background-color: olivedrab;
+}
+
+.board-cell.level-7::before {
+	content: "128";
+	background-color: olive;
+}
+
+.board-cell.level-8::before {
+	content: "256";
+	background-color: darkgoldenrod;
+}
+
+.board-cell.level-9::before {
+	content: "512";
+	background-color: orange;
+}
+
+.board-cell.level-10::before {
+	content: "1024";
+	background-color: gold;
+}
+
+.board-cell.level-11::before {
+	content: "2048";
+	background-color: sandybrown;
+}
+
+.board-cell.level-12::before {
+	content: "4096";
+	background-color: salmon;
+}
+
+.board-cell.level-13::before {
+	content: "8192";
+	background-color: violet;
+}
+
+.board-cell.level-14::before {
+	content: "16384";
+	background-color: darkviolet;
+}
+
+.board-cell.level-15::before {
+	content: "32768";
+	background-color: indigo;
+}
+
+.board-cell.level-16::before {
+	content: "65536";
+	background-color: darkblue;
+}
+
+.board-cell.level-17::before {
+	content: "131072";
+	background-color: black;
+}
+
+#gameStatus, .score-info {
+	display: block;
+	font-size: 22px;
+	font-weight: bold;
+	color: darkgray;
+	margin: 5px 0;
+}
+
+.score-info {
+	white-space: nowrap;
+}
+
+#gameStatus.game-over {
+	color: lightcoral;
+}
+
+@media screen and (max-width: 420px) {
+	.new-game-btn {
+		outline: none;
+	}
+
+	main {
+		width: 300px;
+	}
+
+	#gameStatus, .score-info {
+		font-size: 15px;
+	}
+
+	#mainBoard {
+		font-size: 79px;
+		line-height: 72px;
+	}
+}

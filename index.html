@@ -1,0 +1,44 @@
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>2048</title>
+		<link rel="stylesheet" href="2048.css">
+		<link rel="icon" href="2048.png">
+		<script src="2048.js" defer></script>
+	</head>
+	<body>
+		<main>
+			<div id="victoryOverlay">
+				<div class=inner><span class="line">Congratulations, you reached 2048!!!</span> <span class="line">You can still continue playling.</span></div>
+            </div>
+			<button class="new-game-btn" onclick="newGame();">Start a new game</button>
+			<span class="score-info">
+				Your score: <span id="currentScore">0</span>
+				|
+				Best score: <span id="bestScore">0</span>
+			</span>
+			<div class="board-container">
+				<div id="mainBoard">
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+					<div class="board-cell"></div>
+				</div>
+			</div>
+			<span id="gameStatus"></span>
+		</main>
+	</body>
+</html>
