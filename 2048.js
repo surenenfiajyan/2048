@@ -241,11 +241,13 @@ window.addEventListener('keydown', event => {
 });
 
 window.addEventListener('touchstart', event => {
+	event.preventDefault();
 	clientX = event.touches[0].clientX;
 	clientY = event.touches[0].clientY;
 });
 
 window.addEventListener('touchend', event => {
+	event.preventDefault();
 	victoryOverlay.classList.remove('show');
 
 	if (gameOver) {
