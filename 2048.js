@@ -256,9 +256,9 @@ window.addEventListener('touchend', event => {
 
 		if (Math.abs(Math.abs(deltaX) - Math.abs(deltaY)) > 50) {
 			if (Math.abs(deltaX) > Math.abs(deltaY)) {
-				moveCells(keyMapping[deltaX > 0 ? 'ArrowRight' : 'ArrowLeft']);
+				moveCells(deltaX > 0 ? 'right' : 'left');
 			} else {
-				moveCells(keyMapping[deltaY > 0 ? 'ArrowDown' : 'ArrowUp']);
+				moveCells(deltaY > 0 ? 'down' : 'up');
 			}
 		}
 	}
